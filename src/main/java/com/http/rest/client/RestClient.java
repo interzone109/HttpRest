@@ -23,7 +23,12 @@ public class RestClient {
 	}
 
 	public DataModel getObjectByUrl(String url) {
-
+		
+		
+		if(url == null || url.isEmpty()) {
+			throw new NullPointerException();
+		}
+		
 		OkHttpClient client = new OkHttpClient();
 
 		Request request = new Request.Builder().url(url).build();
